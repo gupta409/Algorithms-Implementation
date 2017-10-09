@@ -65,22 +65,25 @@ public class Heap<T extends List<E>, E extends Comparable<E>> {
 		size = list.size();
 		return size;
 	}
-	//Swaps element at index a with element at index b
+
+	// Swaps element at index a with element at index b
 	private void swap(int a, int b) {
-		E temp = list.get(a-1);
-		list.set(a-1, list.get(b-1));
-		list.set(b-1, temp);
+		E temp = list.get(a - 1);
+		list.set(a - 1, list.get(b - 1));
+		list.set(b - 1, temp);
 	}
-	//Swaps node i with Left Leaf of i
+
+	// Swaps node i with Left Leaf of i
 	public void swapLeft(int i) {
 		swap(i, 2 * i);
 	}
-	//Swaps node i with Right Leaf of i
+
+	// Swaps node i with Right Leaf of i
 	public void swapRight(int i) {
-		swap(i, 2 * i+1);
+		swap(i, 2 * i + 1);
 	}
 
-	private void maxHeapify(int i) {
+	public void maxHeapify(int i) {
 		int n = list.size();
 		while (i <= n) {
 			// Find max among parent, left node, right node
@@ -88,25 +91,36 @@ public class Heap<T extends List<E>, E extends Comparable<E>> {
 			E parent = this.getNode(i);
 			E left = this.getLeftLeaf(i);
 			E right = this.getRightLeaf(i);
-			try {
-				if ((int) left.compareTo(parent) > 0) {
-					swapLeft(i);
-					i = i * 2;
-					continue;
+			if (parent != null) {
+				if (left != null) {
+					if (right != null) {
+						if ((int) left.compareTo(parent) > 0 && (int) left.compareTo(right) > 0) {
+							swapLeft(i);
+							i = i * 2;
+						}
+						if ((int) right.compareTo(parent) > 0 && (int) right.compareTo(left) > 0) {
+							swapRight(i);
+							i = i * 2 + 1;
+						} else {
+							i = n + 1;
+						}
+					} else {
+						if ((int) left.compareTo(parent) > 0) {
+							swapLeft(i);
+							i = i * 2;
+						} else {
+							i = n + 1;
+						}
+					}
+				} else if (right != null) {
+					if ((int) right.compareTo(parent) > 0) {
+						swapRight(i);
+						i = i * 2 + 1;
+					} else {
+						i = n + 1;
+					}
 				}
-			} catch (NullPointerException e) {
-				//e.printStackTrace();
-				i = n + 1;
-			}
-			try {
-				if ((int) right.compareTo(parent) > 0) {
-					swapRight(i);
-					i = i * 2 + 1;
-				} else {
-					i = n + 1;
-				}
-			} catch (NullPointerException e) {
-				//e.printStackTrace();
+			} else {
 				i = n + 1;
 			}
 		}
@@ -115,9 +129,9 @@ public class Heap<T extends List<E>, E extends Comparable<E>> {
 	public void buildMaxHeap() {
 		int n = list.size() / 2;
 		for (int i = n; i >= 1; i--) {
-			//System.out.println("\n============="+i+"==============\n");
+			// System.out.println("\n============="+i+"==============\n");
 			this.maxHeapify(i);
-			//printNodes();
+			// printNodes();
 		}
 	}
 
