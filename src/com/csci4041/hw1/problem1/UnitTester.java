@@ -11,13 +11,7 @@ public class UnitTester {
 		Heap<List<Integer>, Integer> myHeap = new Heap<List<Integer>, Integer>(myList);
 		myHeap.printNodes();
 		myHeap.buildMaxHeap();
+		System.out.println("\n==============================");
 		myHeap.printNodes();
-		/*System.out.println("\n=========Swap Left=========");
-		myHeap.swapLeft(1);
-		myHeap.printNodes();
-		System.out.println("\n=========Swap Right=========");
-		myHeap.swapRight(1);
-		myHeap.printNodes();
-		*/
 	}
 }
