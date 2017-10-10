@@ -2,15 +2,21 @@ package com.csci4041.hw1.problem1;
 
 import java.util.List;
 
-public class Heap<T extends List<E>, E extends Comparable<E>> {
-	private T list;
 
+public class Heap<T extends List<E> , E extends Comparable<E>> {
+	
+
+	private T list;
+	
+	public Heap() {
+		this.list = null;
+	}
 	Heap(T myList) {
 		this.list = myList;
 	}
 
 	public E getRoot() {
-		return this.getNode(0);
+		return this.getNode(1);
 	}
 
 	public E getNode(int index) {
@@ -18,7 +24,6 @@ public class Heap<T extends List<E>, E extends Comparable<E>> {
 		try {
 			data = list.get(index - 1);
 		} catch (IndexOutOfBoundsException e) {
-			e.printStackTrace();
 			data = null;
 		}
 		return data;
@@ -94,10 +99,12 @@ public class Heap<T extends List<E>, E extends Comparable<E>> {
 			if (parent != null) {
 				if (left != null) {
 					if (right != null) {
+						//All data is present
 						if ((int) left.compareTo(parent) > 0 && (int) left.compareTo(right) > 0) {
 							swapLeft(i);
 							i = i * 2;
 						}
+						else
 						if ((int) right.compareTo(parent) > 0 && (int) right.compareTo(left) > 0) {
 							swapRight(i);
 							i = i * 2 + 1;
@@ -105,6 +112,7 @@ public class Heap<T extends List<E>, E extends Comparable<E>> {
 							i = n + 1;
 						}
 					} else {
+						//Only Left is present
 						if ((int) left.compareTo(parent) > 0) {
 							swapLeft(i);
 							i = i * 2;
@@ -113,12 +121,17 @@ public class Heap<T extends List<E>, E extends Comparable<E>> {
 						}
 					}
 				} else if (right != null) {
+					//Only right is present
 					if ((int) right.compareTo(parent) > 0) {
 						swapRight(i);
 						i = i * 2 + 1;
 					} else {
 						i = n + 1;
 					}
+				}
+				else {
+					//Nothing is present
+					i = n + 1;
 				}
 			} else {
 				i = n + 1;
@@ -129,9 +142,7 @@ public class Heap<T extends List<E>, E extends Comparable<E>> {
 	public void buildMaxHeap() {
 		int n = list.size() / 2;
 		for (int i = n; i >= 1; i--) {
-			// System.out.println("\n============="+i+"==============\n");
 			this.maxHeapify(i);
-			// printNodes();
 		}
 	}
 
@@ -142,5 +153,22 @@ public class Heap<T extends List<E>, E extends Comparable<E>> {
 			System.out.print(this.getLeftLeaf(i));
 			System.out.print("\t" + this.getRightLeaf(i));
 		}
+	}
+	
+	public void removeNode(int i){
+		try{
+			list.remove(i-1);
+		}
+		catch(IndexOutOfBoundsException e) {
+			System.out.println("Invalid Removal");
+		}
+		catch(UnsupportedOperationException e) {
+			System.out.println("Invalid Input List type sent. No able to remove elements from List");
+		}
+	}
+	
+	public void addNode(E data) {
+			list.add(data);
+			this.maxHeapify((int)Math.floor(list.size()/2));
 	}
 }
