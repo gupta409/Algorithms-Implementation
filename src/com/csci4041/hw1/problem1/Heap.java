@@ -35,7 +35,6 @@ public class Heap<T extends List<E> , E extends Comparable<E>> {
 		try {
 			data = list.get(index - 1);
 		} catch (IndexOutOfBoundsException e) {
-			// e.printStackTrace();
 			data = null;
 		}
 		return data;
@@ -47,7 +46,6 @@ public class Heap<T extends List<E> , E extends Comparable<E>> {
 		try {
 			data = list.get(index - 1);
 		} catch (IndexOutOfBoundsException e) {
-			// e.printStackTrace();
 			data = null;
 		}
 		return data;
@@ -59,7 +57,6 @@ public class Heap<T extends List<E> , E extends Comparable<E>> {
 		try {
 			data = list.get(index - 1);
 		} catch (IndexOutOfBoundsException e) {
-			// e.printStackTrace();
 			data = null;
 		}
 		return data;
@@ -79,12 +76,12 @@ public class Heap<T extends List<E> , E extends Comparable<E>> {
 	}
 
 	// Swaps node i with Left Leaf of i
-	public void swapLeft(int i) {
+	private void swapLeft(int i) {
 		swap(i, 2 * i);
 	}
 
 	// Swaps node i with Right Leaf of i
-	public void swapRight(int i) {
+	private void swapRight(int i) {
 		swap(i, 2 * i + 1);
 	}
 
