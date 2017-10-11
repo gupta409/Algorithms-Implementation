@@ -1,0 +1,17 @@
+Problem 1. (20 points)
+Implement a priority queue. In particular, you are asked to simulate a waiting line that forms in front of
+a bank teller in a typical bank. Different customers have different priorities. A priority queue should
+support the following functions (you must build these functions):
+• Insert(S,x) inserts the element x into the set S.
+• Maximum(S) returns the element of S with the largest key.
+• Extract_Max(S) removes and returns the element of S with the largest key.
+Your program should be based on a heap structure. The input must accept the different customers and
+their priorities (Customer Name and Customer Priority are two attributes that you must use). As an
+output, the program should produce a list of the customers based on their priorities (decreasing order).
+You may assume priorities are integers.
+This is a sample output.txt file (spaces separating customer names (no space after final name)):
+Alan Paul
+... for this input file (one customer and priority per line in this format):
+Paul : 2
+Alan : 5
+You can break ties in any order if their priorities are the same. 

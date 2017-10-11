@@ -1,7 +1,6 @@
 package com.csci4041.hw1.problem1;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class PriorityQueue extends Heap<ArrayList<Customer>, Customer>{
 

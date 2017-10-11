@@ -1,8 +1,6 @@
 package com.csci4041.hw1.problem1;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class Teller {
 	public static void main(String args[]) {

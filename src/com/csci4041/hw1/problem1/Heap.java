@@ -11,7 +11,7 @@ public class Heap<T extends List<E> , E extends Comparable<E>> {
 	public Heap() {
 		this.list = null;
 	}
-	Heap(T myList) {
+	public Heap(T myList) {
 		this.list = myList;
 	}
 
