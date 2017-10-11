@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +12,7 @@ import java.util.Scanner;
 public class BucketSort {
 	private static PrintWriter output;
 	private static Scanner input;
+
 	public static void main(String args[]) {
 		// Setup I/O file connections
 		try {
@@ -21,19 +21,30 @@ public class BucketSort {
 		} catch (FileNotFoundException e) {
 			System.out.println("No file found!");
 		}
-		// TODO: Take data from the input.txt
-		List<String> myList = Arrays.asList("Anish", "Rahul", "arush", "Anish", "Rahul", "arush", "Anish", "Rahul",
-				"arush", "Anish", "Rahul", "arush", "Anish", "Rahul", "arush", "Anish", "Rahul", "arush", "Anish",
-				"Rahul", "arush", "Anish", "Rahul", "arush", "Anish", "Rahul", "arush", "Anish", "Rahul", "arush");
-		ArrayList<String> myList1 = new ArrayList<String>();
-		for (String string : myList) {
-			myList1.add(string);
+		//Take data from the input.txt
+		ArrayList<String> myList = new ArrayList<String>();
+		while (input.hasNext()) {
+			myList.add(input.next().toLowerCase());
 		}
-		// FIXME: Fix Case-sensitive nature
-		sort(myList1, 0);
-		for (String s : myList1)
-			System.out.println(s);
-		// TODO: Print output to output.txt
+		//BucketSort data
+		sort(myList, 0);
+		//Place sorted data to file
+		String s;
+		for (int i = 0; i < myList.size(); i++) {
+			s = myList.get(i);
+			for (String str : s.split("\\s+")) {
+				if (str.length() > 1)
+					str = Character.toString(str.charAt(0)).toUpperCase() + str.substring(1, str.length());
+				else
+					str = Character.toString(str.charAt(0)).toUpperCase();
+				if (i != 0) {
+					output.append(' ');
+				}
+				output.append(str);
+			}
+		}
+		input.close();
+		output.close();
 	}
 
 	/**
@@ -81,7 +92,7 @@ public class BucketSort {
 			sort(elementList);
 			return;
 		}
-		// While is topmost sort level
+		// Merging the buckets together
 		if (depth == 0) {
 			List<String> minSet;
 			elementList.clear();
@@ -91,20 +102,16 @@ public class BucketSort {
 			}
 		}
 	}
-
 	private static void sort(List<String> elements) {
 		String temp = null;
-		for (int i = 0; i < elements.size(); i++) {
-			for (int j = i; j < elements.size(); j++) {
-				if (elements.get(i).compareToIgnoreCase(elements.get(j)) <= 0) {
-					temp = elements.get(i);
-					elements.set(i, elements.get(j));
-					elements.set(j, temp);
-				}
+		for (int i = 1; i < elements.size(); i++) {
+			for (int j = i; j > 0 && elements.get(j).compareToIgnoreCase(elements.get(j-1)) < 0; j--) {
+					temp = elements.get(j);
+					elements.set(j, elements.get(j-1));
+					elements.set(j-1, temp);
 			}
 		}
 	}
-
 	private static Character FindMin(Map<Character, List<String>> data) {
 		Character minChar = null;
 		if (!data.keySet().isEmpty()) {
