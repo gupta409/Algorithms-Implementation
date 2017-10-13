@@ -17,7 +17,8 @@ public class PriorityQueue extends Heap<ArrayList<Customer>, Customer>{
 	}
 	public Customer extract_max() {
 		Customer maxCustomer = this.getRoot();
-		this.removeNode(1);
+		this.swap(1, getSize());
+		this.removeNode(getSize());
 		this.maxHeapify(1);
 		return maxCustomer;
 	}

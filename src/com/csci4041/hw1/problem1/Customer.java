@@ -17,7 +17,7 @@ public class Customer implements Comparable<Customer>{
 	@Override
 	public int compareTo(Customer o) {
 		int result = 0;
-		if(this.priority > o.getPriority()) {
+		if(this.priority >= o.getPriority()) {
 			result = 1;
 		}
 		else {
@@ -25,5 +25,8 @@ public class Customer implements Comparable<Customer>{
 		}
 		return result;
 	}
-	
+	@Override
+	public String toString() {
+		return "Customer [name=" + name + ", priority=" + priority + "]";
+	}
 }

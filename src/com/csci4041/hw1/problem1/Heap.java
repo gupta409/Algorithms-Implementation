@@ -69,7 +69,7 @@ public class Heap<T extends List<E> , E extends Comparable<E>> {
 	}
 
 	// Swaps element at index a with element at index b
-	private void swap(int a, int b) {
+	public void swap(int a, int b) {
 		E temp = list.get(a - 1);
 		list.set(a - 1, list.get(b - 1));
 		list.set(b - 1, temp);
