@@ -15,6 +15,7 @@ public class Selection {
 		// Setup I/O file connections
 		try {
 			input = new Scanner(new File(args[0]));
+			//input = new Scanner("input.txt");
 			output = new PrintWriter(new File("output.txt"));
 		} catch (FileNotFoundException e) {
 			System.out.println("No file found!");
@@ -72,6 +73,7 @@ public class Selection {
 			} else if (key > j) {
 				return select(key - j - 1, data.subList(j + 1, maxIndex + 1));
 			} else {
+				System.out.println(data.get(j));
 				return data.get(j);
 			}
 
