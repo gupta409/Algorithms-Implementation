@@ -82,10 +82,13 @@ public class DijkstraTest {
 		Graph graph = new Graph(nodes);
 		//Call dijkstra's on source destination
 		List<Node> path = Dijkstra.findShortestPath(nodes.get(source), nodes.get(destination), graph);
-		System.out.println("Cost: " + path.get(0).getDistance());
+		output.append(new Integer((int) path.get(0).getDistance()).toString());
+		output.append(": ");
 		for(int i=path.size()-1;i>=0;i--) {
-			System.out.print(path.get(i).getId()+"\t");
+			output.append(new Integer(path.get(i).getId()).toString());
+			output.append(" ");
 		}
+		input.close();
+		output.close();
 	}
-
 }
