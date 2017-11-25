@@ -56,9 +56,10 @@ public class RunDFS {
 		//Perform DFS on graph
 		DFS.performDFS(g);
 		g.getGraphNodes().sort(new TopologicalComparator());
-		for(Node n:g.getGraphNodes()) {
-			System.out.print(n.getId()+"\t");
+		for(Node n:g.getGraphNodes().subList(0, g.getGraphNodes().size()-1)) {
+			output.append(n.getId()+" ");
 		}
+		output.append(g.getGraphNodes().get(g.getGraphNodes().size()-1).getId()+"");
 		//Close I/O Connections
 		input.close();
 		output.close();
