@@ -1,4 +1,4 @@
-package com.csci4041.hw2.problem3;
+package com.csci4041.hw2.problem4;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,10 +8,11 @@ public class Dijkstra {
 		//Initialize Distances
 		for(Node n : graph.getGraphNodes()) {
 			if(n != source) {
-				n.setDistance(GraphConstants.INF);	
+				n.setDistance(GraphConstants.INF);
 			}else {
 				n.setDistance(0);
 			}
+			n.setPrevious(null);
 		}
 		//Keep local copy of graph as a Min Heap for efficient traversal
 		List<Node> heapGraph = new ArrayList<Node>();
@@ -35,7 +36,6 @@ public class Dijkstra {
 					break;
 				}	
 			}else {
-				System.out.println("Destination Found");
 				break;
 			}
 		}
