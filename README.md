@@ -1,7 +1,7 @@
 # Introduction to Algorithms 
 ---
 ## Content 
-This repository has my solutions to various programming problems I solved in the CSCI4041 course on _Introduction to Algorithms_ during the Fall 2017 at the University of Minnesota.
+This repository has my solutions to various programming problems I solved in the CSCI4041 course on _Introduction to Algorithms_ during Fall 2017 at the University of Minnesota.
 The following is a list of problems and the algorithm it dealt with.
 
  1. **Homework 1:**  

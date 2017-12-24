@@ -1,5 +1,5 @@
-# Topological Sort : Problem Statement
-In this problem the input file will have classes listed with their prerequisites. Your output.txt should list
+# Topological Sort: Problem Statement
+In this problem, the input file will have classes listed with their prerequisites. Your output.txt should list
 a valid order for taking all of these classes while meeting all the prerequisites.
 You may assume there are no circular prerequisites (i.e. class A requires class B. Class B requires class
 C. Class C requires class A). You may assume all classes that are prerequisites of another are listed.

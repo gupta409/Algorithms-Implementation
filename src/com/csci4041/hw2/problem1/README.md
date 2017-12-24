@@ -1,6 +1,6 @@
-# Finite Automata based String Matcher : Problem Statement
+# Finite Automata based String Matcher: Problem Statement
 
-Make a string match program using a finite automata. However, you need to modify it so it finds the
+Make a string match program using finite automata. However, you need to modify it so it finds the
 patter either forwards or backwards. The first word in the input file is the pattern (on its own line).
 The second word will be the string you are trying to match. Output all indexes where a match starts
 happening.
