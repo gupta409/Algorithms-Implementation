@@ -1,6 +1,6 @@
-Problem Statement
-----------------------------------------------------
-Implement Dijkstra's algorithm to find the shortest path to every other vertex. The input text file will
+# Dijkstra's Algorithm : Problem Statement
+
+Implement _Dijkstra's algorithm_ to find the shortest path to every other vertex. The input text file will
 contain the graph represented as an adjacency matrix. Values of 2 million will represent “infinity” edge
 weight (when there is no edge between the verticies). You can assume all shortest paths will be less
 than 2 million.
@@ -10,9 +10,11 @@ is the adjacency matrix (which will be square). Your output.txt should contain t
 from this source to destination vertex followed by a “:”. After the “:” should be the actual list of
 vertexes you should travel through for this shortest path.
 Sample input file (fire line always source and destination vertex, afterwards is adjacency matrix):
+```
 0 1
 0 2000000 4
 2 0 7
 2000000 3 0
+```
 Sample output.txt (7 is the shortest path length (before “:”). 0 2 1 is the actual path (after “:”)):
-7: 0 2 1
+`7: 0 2 1`
