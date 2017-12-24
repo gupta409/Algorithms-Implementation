@@ -5,16 +5,16 @@ This repository has my solutions to various programming problems I solved in the
 The following is a list of problems and the algorithm it dealt with.
 
  1. **Homework 1:**  
-    1.[Problem 1][problem11]: Priority Queue  
-    2.[Problem 2][problem12]: Huffman Code  
-    3.[Problem 3][problem13]: Selection Algorithm  
-    4.[Problem 4][problem14]: Modified Bucket Sort  
+    [Problem 1][problem11]: Priority Queue  
+    [Problem 2][problem12]: Huffman Code  
+    [Problem 3][problem13]: Selection Algorithm  
+    [Problem 4][problem14]: Modified Bucket Sort  
 2. **Homework 2:**  
-    1.[Problem 1][problem21]: Finite Automata based String Matcher  
-    2.[Problem 2][problem22]: Topological Sort  
-    3.[Problem 3][problem23]: Dijkstra's Algorithm  
-    4.[Problem 4][problem24]: Johnson's Algorithm  
-    5.[Problem 5][problem25]: All Pair Shortest Path Modified Algorithm  
+    [Problem 1][problem21]: Finite Automata based String Matcher  
+    [Problem 2][problem22]: Topological Sort  
+    [Problem 3][problem23]: Dijkstra's Algorithm  
+    [Problem 4][problem24]: Johnson's Algorithm  
+    [Problem 5][problem25]: All Pair Shortest Path Modified Algorithm  
 
 
 
